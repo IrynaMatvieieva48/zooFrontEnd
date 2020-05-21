@@ -1,0 +1,10 @@
+.bg-white{
+  background-color: white;
+}
+.bg-ticket{
+  background-color: azure;
+
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 100px / 50px;
+}

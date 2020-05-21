@@ -1,0 +1,11 @@
+<nav class="site-header sticky-top py-1 bg-white">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 d-none d-md-inline-block" href="#">Головна сторінка</a>
+    <a class="py-2 d-none d-md-inline-block" [routerLink]="['/rules']">Правила поведінки</a>
+    <a class="py-2 d-none d-md-inline-block" [routerLink] = "['/animals']">Тварини</a>
+    <a class="py-2 d-none d-md-inline-block" [routerLink] = "['zooMap']" >Мапа</a>
+    <a class="py-2 d-none d-md-inline-block" [routerLink] = "['/location']">Як нас знайти</a>
+    <a class="py-2 d-none d-md-inline-block" [routerLink] = "['/news']">Новини</a>
+    <a class="py-2 d-none d-md-inline-block bg-ticket" [routerLink] = "['/tickets']">Купівля квитків</a>
+  </div>
+</nav>
