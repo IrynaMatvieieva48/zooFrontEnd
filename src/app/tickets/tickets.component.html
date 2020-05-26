@@ -1,1 +1,40 @@
-<p>tickets works!</p>
+<div class="col-md-8 order-md-1">
+  <form class="needs-validation" novalidate="" #ticketForm="ngForm" (ngSubmit)="onSubmit(ticketForm)">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="ticketService.selectedTicket._id">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="ticketService.selectedTicket.name" placeholder="Ім'я" required>
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <input type="text" name="surname" #name="ngModel" [(ngModel)]="ticketService.selectedTicket.surname" placeholder="Прізвище" required>
+        <div class="invalid-feedback">
+          Valid last name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 ">
+      <input id = "email" type="text" name="email" #name="ngModel" [(ngModel)]="ticketService.selectedTicket.email" placeholder="email" required email>
+      <div class="invalid-feedback">
+        Please enter a valid email address for shipping updates.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <select id = "type" name = "type" [(ngModel)]="ticketService.selectedTicket.type" class="form-control">
+        <option selected value="{{'Звичайний'}}">Зичайний <span class="text-muted">(150 грн)</span></option>
+        <option value="{{'Студентський'}}">Студентський <span class="text-muted">(100 грн)</span></option>
+        <option value="{{'Шкільний'}}">Шкільний <span class="text-muted">(100 грн)</span></option>
+        <option value="{{'Пенсійний'}}">Пенсійний <span class="text-muted">(75 грн)</span></option>
+      </select>
+    </div>
+
+
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!ticketForm.valid">Придбати</button>
+    <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="resetForm(ticketForm)">Стерти</button>
+  </form>
+</div>

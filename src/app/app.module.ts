@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { NewsComponent } from './news/news.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ZooMapComponent } from './zoo-map/zoo-map.component';
 import { RulesComponent } from './rules/rules.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 const appRoute: Routes = [
@@ -32,12 +34,14 @@ const appRoute: Routes = [
     NewsComponent,
     TicketsComponent,
     ZooMapComponent,
-    RulesComponent
+    RulesComponent,
   ],
-    imports: [
-        BrowserModule,
-        RouterModule.forRoot(appRoute),
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoute),
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
