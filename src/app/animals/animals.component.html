@@ -1,125 +1,44 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="col-xs-12 bottommargin-sm">
-
-
-
       <div class="heading-block">
-
-
-        <h1>Познакомьтесь с нашими питомцами!</h1>
-
-
-        <span>Откройте для себя уникальных животных и места их обитания</span>
+        <h1>Познайомтесь з нашими тваринками</h1>
+        <span>Відкрийте для себе унікальних тварин і місця їх проживання</span>
       </div>
-
-
-
-
-
-
-
-      <p>Здесь столько всего интересного, на что можно посмотреть, что мы даже и не знаем с чего или кого именно начать. Зоопарк населяют более восьмидесяти видов самых разнообразных животных — это и экзотические, и те кто под угрозой исчезновения, все они приехали к нам, в Бердянск, из самых разных точек земного шара.
+      <p>
+        Тут стільки всього цікавого, на що можна подивитися, що ми навіть і не знаємо з чого або кого саме почати. Зоопарк населяють понад вісімдесят видів найрізноманітніших тварин - це і екзотичні, і ті, хто під загрозою зникнення, все вони приїхали до нас з самих різних точок земної кулі.
       </p>
-      <p>Таким образом, наш Зоопарк делает свой вклад в сохранение редких животных на планете. Это невероятно важная работа, не только потому, что животные прекрасны, но и из — за того, что происходит с дикой природой - затрагивает все живое на Земле.
+      <p>Таким чином, наш зоопарк робить свій внесок в збереження рідкісних тварин на планеті. Це неймовірно важлива робота, не тільки тому, що тварини прекрасні, але й із-за того, що відбувається з дикою природою - зачіпає все живе на Землі.
       </p>
-      <p>У вас есть возможность узнать больше интересного, увлекательного об этом удивительном мире, его жителях и их среде обитания.
+      <p>У вас є можливість дізнатися більше цікавого, захоплюючого про цей дивовижий світ, його жителів і його середовищ.
       </p>
-      <p>Выберите животного, чтобы узнать о нем более подробно.</p>
+      <div class="row margin-12" >
+        <h3>Оберіть тварину для детального вивчення:</h3>
+      </div>
 
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div *ngFor="let animal of animalService.animals; index as i" class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <div class="row margin-12">
+              <h5> {{animal.name}}</h5>
+          </div>
+          <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+            <title>Placeholder</title>
+            <image xlink:href="{{animal.picture}}" x="0" y="0" height="100%" width="100%" />
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+          </svg>-->
+          <div class="img">
+            <img src="{{animal.picture}}" alt="">
+          </div>
           <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p *ngIf="animal.toggle" class="card-text">{{animal.description | slice:0:65}}...</p>
+            <p *ngIf="!animal.toggle" class="card-text">{{animal.description}}...</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
+                <button (click)="animal.toggle = !animal.toggle" type="button" class="btn btn-sm btn-outline-secondary">{{animal.toggle ? 'детальніше' : 'приховати'}}</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" >детальніше</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

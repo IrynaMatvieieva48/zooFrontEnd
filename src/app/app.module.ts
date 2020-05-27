@@ -13,7 +13,7 @@ import { ZooMapComponent } from './zoo-map/zoo-map.component';
 import { RulesComponent } from './rules/rules.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-
+import { HomeComponent } from './home/home.component';
 
 const appRoute: Routes = [
   {path: 'animals', component: AnimalsComponent},
@@ -35,6 +35,7 @@ const appRoute: Routes = [
     TicketsComponent,
     ZooMapComponent,
     RulesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

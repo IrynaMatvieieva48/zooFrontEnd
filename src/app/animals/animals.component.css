@@ -1,0 +1,14 @@
+.img {
+  display: flex;
+  order: 0;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+}
+.img  img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;}
+.margin-12{
+  margin: 12px;
+}
