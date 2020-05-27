@@ -26,12 +26,7 @@ export class NewsComponent implements OnInit {
     });
   }
 
-
-  onSubmit(form: NgForm) {
-    this.searchString = form.value.searchString;
-  }
-
-  contains(i: number, str: string){
-    return this.newsService.news[i].name.includes(str)
+  contains(name: string, str: string){
+    return name.toLowerCase().includes(str.toLowerCase())
   }
 }
