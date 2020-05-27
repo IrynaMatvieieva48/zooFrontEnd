@@ -14,16 +14,12 @@ export class AnimalsComponent implements OnInit {
   constructor(private router: Router, public animalService:AnimalService) { }
 
   ngOnInit(): void {
-    this.refreshPassengerList();
+    this.refreshAnimalsList();
   }
 
-  refreshPassengerList() {
+  refreshAnimalsList() {
     this.animalService.getAnimalList().subscribe((res) => {
       this.animalService.animals = res as Animal[];
     });
-  }
-
-  changeInfo(info:boolean) {
-    info = !info;
   }
 }

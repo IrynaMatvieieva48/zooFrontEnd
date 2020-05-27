@@ -1,1 +1,21 @@
-<p>news works!</p>
+<div class="container h-100">
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+    <div class="d-flex justify-content-center h-100">
+      <div class="searchbar">
+        <input [ngModel]="searchString" class="search_input" type="text" name="" placeholder="Search...">
+        <button (click)="onSubmit(searchForm)" class="search_icon">find<i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row mb-2" style="margin: 30px">
+  <div *ngFor="let n of newsService.news; index as i;" class="col-md-10">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h3 *ngIf="contains(i, n.name)" class="mb-0">{{n.name}}</h3>
+        <p *ngIf="contains(i, n.name)" class="mb-auto">{{n.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
